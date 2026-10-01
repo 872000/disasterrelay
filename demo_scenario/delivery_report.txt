@@ -1,0 +1,26 @@
+============================================================
+DISASTERRELAY DELIVERY REPORT
+============================================================
+Ticks elapsed : 9
+Total messages: 8
+Delivered     : 8
+Pending       : 0
+Dropped       : 0
+Delivery rate : 100.0%
+
+Delivered by priority : INFO=3, MEDICAL=2, SOS=3
+Latency (ticks)       : avg 3.0, max 7, min 1
+Hop counts            : avg 2.25, max 3, min 1
+
+------------------------------------------------------------
+ID      STATUS    PRIO     HOPS  LAT  ROUTE
+------------------------------------------------------------
+M3      DELIVERED INFO     1     1    E > A
+M2      DELIVERED MEDICAL  2     2    B > C > D
+M1      DELIVERED SOS      3     3    A > B > C > D
+M4      DELIVERED INFO     2     2    F > E > A
+M6      DELIVERED MEDICAL  2     2    A > E > F
+M7      DELIVERED SOS      3     4    B > E > F > D
+M8      DELIVERED INFO     3     3    A > E > F > D
+M5      DELIVERED SOS      2     7    B > C > D
+============================================================

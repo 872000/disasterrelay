@@ -1,0 +1,91 @@
+{
+  "summary": {
+    "ticks_elapsed": 9,
+    "total_messages": 8,
+    "delivered": 8,
+    "pending": 0,
+    "dropped": 0,
+    "delivery_rate": 1.0,
+    "delivered_by_priority": {
+      "INFO": 3,
+      "MEDICAL": 2,
+      "SOS": 3
+    },
+    "latency_ticks": {
+      "avg": 3.0,
+      "max": 7,
+      "min": 1
+    },
+    "hop_counts": {
+      "avg": 2.25,
+      "max": 3,
+      "min": 1
+    }
+  },
+  "messages": [
+    {
+      "id": "M3",
+      "status": "DELIVERED",
+      "priority": "INFO",
+      "route": "E > A",
+      "hops": 1,
+      "latency_ticks": 1
+    },
+    {
+      "id": "M2",
+      "status": "DELIVERED",
+      "priority": "MEDICAL",
+      "route": "B > C > D",
+      "hops": 2,
+      "latency_ticks": 2
+    },
+    {
+      "id": "M1",
+      "status": "DELIVERED",
+      "priority": "SOS",
+      "route": "A > B > C > D",
+      "hops": 3,
+      "latency_ticks": 3
+    },
+    {
+      "id": "M4",
+      "status": "DELIVERED",
+      "priority": "INFO",
+      "route": "F > E > A",
+      "hops": 2,
+      "latency_ticks": 2
+    },
+    {
+      "id": "M6",
+      "status": "DELIVERED",
+      "priority": "MEDICAL",
+      "route": "A > E > F",
+      "hops": 2,
+      "latency_ticks": 2
+    },
+    {
+      "id": "M7",
+      "status": "DELIVERED",
+      "priority": "SOS",
+      "route": "B > E > F > D",
+      "hops": 3,
+      "latency_ticks": 4
+    },
+    {
+      "id": "M8",
+      "status": "DELIVERED",
+      "priority": "INFO",
+      "route": "A > E > F > D",
+      "hops": 3,
+      "latency_ticks": 3
+    },
+    {
+      "id": "M5",
+      "status": "DELIVERED",
+      "priority": "SOS",
+      "route": "B > C > D",
+      "hops": 2,
+      "latency_ticks": 7
+    }
+  ]
+}

@@ -1,0 +1,137 @@
+{
+  "description": "6-node volunteer radio mesh after cell towers fail. Mixed SOS / medical / info traffic; relay-hill node C drops mid-demo (t=3) and comes back at t=8. The mesh reroutes live; stranded mail resumes on revive.",
+  "drop": {
+    "at_tick": 3,
+    "node": "C",
+    "reason": "Relay hill mast loses power"
+  },
+  "links": [
+    [
+      "A",
+      "B"
+    ],
+    [
+      "B",
+      "C"
+    ],
+    [
+      "C",
+      "D"
+    ],
+    [
+      "A",
+      "E"
+    ],
+    [
+      "E",
+      "F"
+    ],
+    [
+      "F",
+      "D"
+    ],
+    [
+      "B",
+      "E"
+    ]
+  ],
+  "max_ticks": 60,
+  "messages": [
+    {
+      "body": "SOS: family trapped under rubble at 5th & Main",
+      "dst": "D",
+      "id": "M1",
+      "priority": "SOS",
+      "send_tick": 0,
+      "src": "A"
+    },
+    {
+      "body": "Need insulin delivery to north shelter",
+      "dst": "D",
+      "id": "M2",
+      "priority": "MEDICAL",
+      "send_tick": 0,
+      "src": "B"
+    },
+    {
+      "body": "South shelter at 80% capacity",
+      "dst": "A",
+      "id": "M3",
+      "priority": "INFO",
+      "send_tick": 0,
+      "src": "E"
+    },
+    {
+      "body": "Water truck arriving in 2h",
+      "dst": "A",
+      "id": "M4",
+      "priority": "INFO",
+      "send_tick": 1,
+      "src": "F"
+    },
+    {
+      "body": "SOS: gas leak reported near shelter entrance",
+      "dst": "D",
+      "id": "M5",
+      "priority": "SOS",
+      "send_tick": 2,
+      "src": "B"
+    },
+    {
+      "body": "Requesting 20 stretchers at depot",
+      "dst": "F",
+      "id": "M6",
+      "priority": "MEDICAL",
+      "send_tick": 2,
+      "src": "A"
+    },
+    {
+      "body": "SOS: aftershock, second collapse at north shelter",
+      "dst": "D",
+      "id": "M7",
+      "priority": "SOS",
+      "send_tick": 2,
+      "src": "B"
+    },
+    {
+      "body": "All-clear drill scheduled at dawn",
+      "dst": "D",
+      "id": "M8",
+      "priority": "INFO",
+      "send_tick": 5,
+      "src": "A"
+    }
+  ],
+  "name": "earthquake-response-demo",
+  "nodes": [
+    {
+      "id": "A",
+      "label": "Command post"
+    },
+    {
+      "id": "B",
+      "label": "North shelter"
+    },
+    {
+      "id": "C",
+      "label": "Relay hill"
+    },
+    {
+      "id": "D",
+      "label": "Field hospital"
+    },
+    {
+      "id": "E",
+      "label": "South shelter"
+    },
+    {
+      "id": "F",
+      "label": "Supply depot"
+    }
+  ],
+  "revive": {
+    "at_tick": 8,
+    "node": "C",
+    "reason": "Mast back on battery backup"
+  }
+}

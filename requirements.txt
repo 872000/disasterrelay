@@ -1,0 +1,3 @@
+# DisasterRelay runtime dependencies (minimal, offline-friendly).
+# Only Pillow is needed — for rendering the mesh graph and delivery charts.
+Pillow>=10.0
