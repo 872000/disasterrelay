@@ -81,6 +81,18 @@ def test_send_to_unknown_node_raises(tmp_path):
                          priority=Priority.SOS, body="x"))
 
 
+def test_unknown_source_error_names_valid_nodes(tmp_path):
+    sim = RelaySimulator(build_mesh(), tmp_path / "state")
+    with pytest.raises(KeyError) as exc_info:
+        sim.send(Message(id="x", src="ZZZ", dst="A",
+                         priority=Priority.SOS, body="x"))
+    # the error tells the operator which node ids exist, so a typo is
+    # spotted immediately instead of guessing from the mesh layout
+    assert "valid nodes" in str(exc_info.value)
+    for node in ["A", "B", "C", "D", "E", "F"]:
+        assert node in str(exc_info.value)
+
+
 def test_one_hop_per_tick(tmp_path):
     sim = RelaySimulator(build_mesh(), tmp_path / "state")
     send("A", "D", "m1", "INFO", sim)

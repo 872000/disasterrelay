@@ -43,7 +43,8 @@ class RelaySimulator:
     def send(self, msg: Message) -> None:
         """Inject a message into its source node's store."""
         if msg.src not in self.stores:
-            raise KeyError(f"unknown source node {msg.src!r}")
+            raise KeyError(f"unknown source node {msg.src!r}; "
+                           f"valid nodes: {', '.join(self.mesh.nodes)}")
         msg.created_tick = self.tick_count
         msg.path = [msg.src]
         msg.plan = self.mesh.shortest_path(msg.src, msg.dst) or []
