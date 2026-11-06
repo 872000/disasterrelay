@@ -64,6 +64,12 @@ def test_drop_unknown_node_raises():
         mesh.drop_node("ZZZ")
 
 
+def test_revive_unknown_node_raises():
+    mesh = make_mesh()
+    with pytest.raises(KeyError):
+        mesh.revive_node("ZZZ")
+
+
 def test_revive_restores_route():
     mesh = make_mesh()
     mesh.drop_node("B")

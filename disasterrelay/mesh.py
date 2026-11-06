@@ -52,6 +52,11 @@ class MeshNetwork:
         self._alive[node_id] = False
 
     def revive_node(self, node_id: str) -> None:
+        """Bring a dropped node back online; unknown nodes raise KeyError,
+        mirroring drop_node (reviving a typo'd id used to silently mark a
+        node that does not exist as alive)."""
+        if node_id not in self._neighbors:
+            raise KeyError(f"unknown node {node_id!r}")
         self._alive[node_id] = True
 
     def is_alive(self, node_id: str) -> bool:
